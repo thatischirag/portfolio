@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Product Advertising Projects</title>
+  <style>
+    body {
+      background: #000;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 25px;
+      max-width: 1000px;
+      width: 100%;
+      margin-bottom: 40px;
+    }
+    .project-card {
+      background: #111;
+      border-radius: 15px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: box-shadow 0.3s ease;
+      box-shadow: 0 0 0 transparent;
+    }
+    .project-card:hover {
+      box-shadow: 0 0 15px 5px rgba(0, 123, 255, 0.7);
+    }
+    .project-img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+      border-bottom: 2px solid #222;
+    }
+    .project-content {
+      padding: 16px 20px;
+    }
+    .project-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .project-desc {
+      font-size: 0.95rem;
+      color: #bbb;
+      line-height: 1.4;
+    }
+    .home-button {
+      background-color: #007bff;
+      color: white;
+      padding: 12px 28px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+      user-select: none;
+    }
+    .home-button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <button class="home-button" onclick="location.href='index.html'">Home</button>
+
+</body>
+</html>

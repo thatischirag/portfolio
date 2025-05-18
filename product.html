@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Product Advertising</title>
+<style>
+  body {
+    background-color: #000;
+    color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 2rem;
+    margin: 0;
+  }
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  h1 {
+    margin-bottom: 1.5rem;
+  }
+  .cards {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .card {
+    position: relative;
+    background: #111;
+    border-radius: 15px;
+    overflow: hidden;
+    flex: 1 1 45%;
+    cursor: pointer;
+    box-shadow: 0 0 10px transparent;
+    transition: box-shadow 0.3s ease;
+  }
+  .card:hover {
+    box-shadow: 0 0 20px 4px #007bff;
+  }
+  video, img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+  }
+  h2 {
+    margin: 1rem;
+    font-weight: 700;
+  }
+  p {
+    color: #bbb;
+    margin: 0 1rem 1rem;
+  }
+  button.home-btn {
+    margin-top: 2rem;
+    background-color: transparent;
+    border: 2px solid #007bff;
+    color: #007bff;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  button.home-btn:hover {
+    background-color: #007bff;
+    color: #fff;
+  }
+
+  /* Popup styles */
+  .videoPopup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.9);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    flex-direction: column;
+  }
+  .videoPopup video {
+    width: 90vw;
+    height: auto;
+    max-height: 80vh;
+    border-radius: 12px;
+    box-shadow: 0 0 30px #007bff;
+  }
+  .closePopup {
+    margin-top: 1rem;
+    background: #007bff;
+    border: none;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+  .closePopup:hover {
+    background: #005bb5;
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <h1>Product Advertising</h1>
+    <div class="cards">
+      <!-- Video Card 1 -->
+      <div class="card videoCard" data-video-src="images/1.mp4" title="Lipstick Ad Video">
+        <video autoplay muted loop playsinline>
+          <source src="images/1.mp4" type="video/webm" />
+          Your browser does not support the video tag.
+        </video>
+        <h2>BMW Shot 1</h2>
+        <p></p>
+      </div>
+
+      <!-- Video Card 2 -->
+      <div class="card videoCard" data-video-src="images/2.mp4" title="Perfume Ad Video">
+        <video autoplay muted loop playsinline>
+          <source src="images/2.mp4" type="video/webm" />
+          Your browser does not support the video tag.
+        </video>
+        <h2>BMW Shot 2</h2>
+        <p>Luxury perfume product video with ambient effects.</p>
+      </div>
+
+      <!-- Video Card 3 -->
+      <div class="card videoCard" data-video-src="images/3.mp4" title="Shoes Ad Video">
+        <video autoplay muted loop playsinline>
+          <source src="images/3.mp4" type="video/webm" />
+          Your browser does not support the video tag.
+        </video>
+        <h2>BMW Shot 3</h2>
+        <p>Stylish footwear product video with vibrant colors.</p>
+      </div>
+<div class="card videoCard" data-video-src="images/3.mp4" title="Shoes Ad Video">
+        <video autoplay muted loop playsinline>
+          <source src="images/7.mp4" type="video/webm" />
+          Your browser does not support the video tag.
+        </video>
+        <h2>BMW Shot 3</h2>
+        <p>Stylish footwear product video with vibrant colors.</p>
+      </div>
+
+
+      <div class="card videoCard" data-video-src="images/3.mp4" title="Shoes Ad Video">
+        <video autoplay muted loop playsinline>
+          <source src="images/watch.mp4" type="video/webm" />
+          Your browser does not support the video tag.
+        </video>
+        <h2>A watch shot making t looking like rch and minimal.</h2>
+        <p>Stylish footwear product video with vibrant colors.</p>
+      </div>
+
+
+      <!-- Video Card 4 -->
+      <div class="card videoCard" data-video-src="images/4.mp4" title="Watch Ad Video">
+        <video autoplay muted loop playsinline>
+          <source src="images/4.mp4" type="video/webm" />
+          Your browser does not support the video tag.
+        </video>
+        <h2>BMW Shot 4</h2>
+        <p>Elegant wristwatch video with soft focus and lighting.</p>
+      </div>
+<div class="card videoCard" data-video-src="images/5.mp4" title="Shoes Ad Video">
+        <video autoplay muted loop playsinline>
+          <source src="images/5.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <h2>BMW Shot 5</h2>
+        <p>Stylish footwear product video with vibrant colors.</p>
+      </div>
+      <div class="card videoCard" data-video-src="images/6.mp4" title="Shoes Ad Video">
+        <video autoplay muted loop playsinline>
+          <source src="images/6.mp4" type="video/webm" />
+          Your browser does not support the video tag.
+        </video>
+        <h2>BMW Shot 6</h2>
+        <p>Stylish footwear product video with vibrant colors.</p>
+      </div>
+      </div>
+  
+  <!-- Popup containers -->
+  <div id="videoPopup" class="videoPopup">
+    <video id="popupVideo" controls></video>
+    <button id="closePopup" class="closePopup">Close ×</button>
+  </div>
+<button class="home-btn" onclick="goHome()">← Home</button>
+  </div>
+<script>
+  function goHome() {
+    window.location.href = 'index.html';
+  }
+
+  const videoCards = document.querySelectorAll('.videoCard');
+  const videoPopup = document.getElementById('videoPopup');
+  const popupVideo = document.getElementById('popupVideo');
+  const closePopup = document.getElementById('closePopup');
+
+  videoCards.forEach(card => {
+    card.addEventListener('click', () => {
+      const videoSrc = card.getAttribute('data-video-src');
+      popupVideo.src = videoSrc;
+      videoPopup.style.display = 'flex';
+      popupVideo.play();
+    });
+  });
+
+  closePopup.addEventListener('click', () => {
+    popupVideo.pause();
+    popupVideo.currentTime = 0;
+    videoPopup.style.display = 'none';
+    popupVideo.src = ""; // clear src to stop loading
+  });
+
+  videoPopup.addEventListener('click', (e) => {
+    if (e.target === videoPopup) {
+      popupVideo.pause();
+      popupVideo.currentTime = 0;
+      videoPopup.style.display = 'none';
+      popupVideo.src = "";
+    }
+  });
+</script>
+</body>
+</html>

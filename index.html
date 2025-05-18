@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Portfolio Home</title>
+<style>
+  /* Basic Reset & Styling */
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin:0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #000;
+    color: #eee;
+    scroll-behavior: smooth;
+  }
+  header {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 20px 40px;
+    background: #111;
+    position: sticky; top: 0; z-index: 10;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.8);
+  }
+  header h1 {
+    margin: 0; font-weight: 700; font-size: 1.8rem;
+    cursor: default;
+  }
+  header a.resume-btn {
+    padding: 10px 20px;
+    background: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: background 0.3s ease;
+  }
+  header a.resume-btn:hover {
+    background: #0056b3;
+  }
+
+  main {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+  }
+
+  /* Category tabs */
+  .category-tabs {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .tab {
+    background: #222;
+    flex: 1 1 260px;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 5px #007bff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .tab:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px #00a8ffaa;
+  }
+  .tab img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 15px;
+  }
+  .tab h2 {
+    margin: 0 0 10px;
+    font-size: 1.6rem;
+  }
+  .tab p {
+    font-size: 1rem;
+    color: #ccc;
+    line-height: 1.3;
+  }
+
+  /* Soft skills section */
+  section.soft-skills {
+    margin-top: 60px;
+    background: #111;
+    border-radius: 15px;
+    padding: 30px 25px;
+  }
+  section.soft-skills h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1.8rem;
+  }
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+    gap: 25px;
+  }
+  .skill-card {
+    background: #222;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 8px #00a8ff44;
+    transition: transform 0.2s ease;
+  }
+  .skill-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px #00bfffaa;
+  }
+  .skill-card h3 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-size: 1.2rem;
+    color: #00bfff;
+  }
+  .skill-card p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #bbb;
+    line-height: 1.4;
+  }
+
+  /* Responsive */
+  @media (max-width: 500px) {
+    header {
+      padding: 15px 20px;
+    }
+    .tab {
+      padding: 15px 10px;
+    }
+    .tab img {
+      height: 120px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Chirag's Portfolio</h1>
+</header>
+
+<main>
+  <div class="category-tabs">
+    <div class="tab" data-link="product.html">
+      <img src="images/8.jpg" alt="Product Advertising" />
+      <h2>Product Advertising</h2>
+      <p>Commercial product animation & cinematic ads.</p>
+    </div>
+    <div class="tab" data-link="environment.html">
+      <img src="images/table.jpg" alt="3D Environment Scenes" />
+      <h2>3D Environment Scenes</h2>
+      <p>Immersive realistic and stylized environments.</p>
+    </div>
+  </div>
+
+  <section class="soft-skills">
+    <h2>Soft Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <h3>Storytelling</h3>
+        <p>Building compelling visual narratives for products and brands.</p>
+      </div>
+      <div class="skill-card">
+        <h3>Client Thinking</h3>
+        <p>Understanding client needs and translating them into creative outcomes.</p>
+      </div>
+      <div class="skill-card">
+        <h3>Creative Direction</h3>
+        <p>Guiding projects from idea to execution with a clear visual strategy.</p>
+      </div>
+      <div class="skill-card">
+        <h3>Visual Communication</h3>
+        <p>Simplifying complex ideas using clean and effective design.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+  // Navigate on tab click
+  document.querySelectorAll('.tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      const link = tab.getAttribute('data-link');
+      window.location.href = link;
+    });
+  });
+</script>
+
+</body>
+</html>

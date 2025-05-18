@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Product Advertising</title>
+<style>
+  body {
+    background-color: #000;
+    color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 2rem;
+    margin: 0;
+  }
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .cards {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .card {
+    position: relative;
+    background: #111;
+    border-radius: 15px;
+    overflow: hidden;
+    flex: 1 1 300px;
+    cursor: pointer;
+    box-shadow: 0 0 10px transparent;
+    transition: box-shadow 0.3s ease;
+  }
+  .card:hover {
+    box-shadow: 0 0 20px 4px #007bff;
+  }
+  video, img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+  }
+  h2 {
+    margin-top: 1rem;
+    font-weight: 700;
+  }
+  p {
+    color: #bbb;
+    margin: 0.5rem 1rem 1.5rem;
+  }
+  button.home-btn {
+    margin-top: 2rem;
+    background-color: transparent;
+    border: 2px solid #007bff;
+    color: #007bff;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  button.home-btn:hover {
+    background-color: #007bff;
+    color: #fff;
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <h1>Product Advertising</h1>
+    <div class="cards">
+      <!-- Video Card -->
+      <div class="card" title="Ad 1">
+        <video autoplay muted loop playsinline>
+          <source src="images/cave.mp4">
+          Your browser does not support the video tag.
+        </video>
+        <h2>Cave</h2>
+        <p></p>
+      </div>
+
+      <!-- Image Card 1 -->
+      <div class="card" title="Image Ad 1">
+        <img src="images/table.jpg" alt="Image Ad 1" />
+        <h2>Photorealistic Table</h2>
+        <p></p>
+      </div>
+
+      <!-- Image Card 2 -->
+      <div class="card" title="Image Ad 2">
+        <img src="images/subway1.jpg" alt="Image Ad 2" />
+        <h2>Subway 1</h2>
+        <p></p>
+      </div>
+
+      <!-- Image Card 3 -->
+      <div class="card" title="Image Ad 3">
+        <img src="images/subway2.jpg" alt="Image Ad 3" />
+        <h2>Subway 2</h2>
+        <p></p>
+      </div>
+    </div>
+
+    <button class="home-btn" onclick="goHome()">← Home</button>
+  </div>
+
+<script>
+  function goHome() {
+    window.location.href = 'index.html';
+  }
+</script>
+</body>
+</html>
