@@ -1,113 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Product Advertising</title>
-<style>
-  body {
-    background-color: #000;
-    color: #fff;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    padding: 2rem;
-    margin: 0;
-  }
-  .container {
-    max-width: 900px;
-    margin: 0 auto;
-  }
-  .cards {
-    display: flex;
-    gap: 2rem;
-    flex-wrap: wrap;
-  }
-  .card {
-    position: relative;
-    background: #111;
-    border-radius: 15px;
-    overflow: hidden;
-    flex: 1 1 300px;
-    cursor: pointer;
-    box-shadow: 0 0 10px transparent;
-    transition: box-shadow 0.3s ease;
-  }
-  .card:hover {
-    box-shadow: 0 0 20px 4px #007bff;
-  }
-  video, img {
-    display: block;
-    width: 100%;
-    height: auto;
-    border-radius: 15px;
-  }
-  h2 {
-    margin-top: 1rem;
-    font-weight: 700;
-  }
-  p {
-    color: #bbb;
-    margin: 0.5rem 1rem 1.5rem;
-  }
-  button.home-btn {
-    margin-top: 2rem;
-    background-color: transparent;
-    border: 2px solid #007bff;
-    color: #007bff;
-    padding: 0.6rem 1.2rem;
-    border-radius: 8px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
-  button.home-btn:hover {
-    background-color: #007bff;
-    color: #fff;
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>3D Environment Scenes</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 2rem;
+      margin: 0;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .cards {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .card {
+      position: relative;
+      background: #111;
+      border-radius: 15px;
+      overflow: hidden;
+      flex: 1 1 300px;
+      cursor: pointer;
+      box-shadow: 0 0 10px transparent;
+      transition: box-shadow 0.3s ease;
+    }
+    .card:hover {
+      box-shadow: 0 0 20px 4px #007bff;
+    }
+    video, img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 15px;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    h2 {
+      margin-top: 1rem;
+      font-weight: 700;
+    }
+    p {
+      color: #bbb;
+      margin: 0.5rem 1rem 1.5rem;
+    }
+    button.home-btn {
+      margin-top: 2rem;
+      background-color: transparent;
+      border: 2px solid #007bff;
+      color: #007bff;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    button.home-btn:hover {
+      background-color: #007bff;
+      color: #fff;
+    }
+
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.9);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal img {
+      max-width: 90%;
+      max-height: 80%;
+      border-radius: 12px;
+    }
+
+    .modal:target {
+      display: flex;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 2rem;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .popup-img {
+      cursor: zoom-in;
+    }
+  </style>
 </head>
 <body>
   <div class="container">
-    <h1>Product Advertising</h1>
+    <h1>3D Environment Scenes</h1>
     <div class="cards">
       <!-- Video Card -->
-      <div class="card" title="Ad 1">
+      <div class="card">
         <video autoplay muted loop playsinline>
-          <source src="cave.mp4">
+          <source src="cave.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
-        <h2>Cave</h2>
-        <p></p>
+        <h2>Cave Scene</h2>
       </div>
 
       <!-- Image Card 1 -->
-      <div class="card" title="Image Ad 1">
-        <img src="table.jpg" alt="Image Ad 1" />
+      <div class="card">
+        <a href="#popup1"><img src="table.jpg" alt="Photorealistic Table" class="popup-img" /></a>
         <h2>Photorealistic Table</h2>
-        <p></p>
       </div>
 
       <!-- Image Card 2 -->
-      <div class="card" title="Image Ad 2">
-        <img src="subway1.jpg" alt="Image Ad 2" />
-        <h2>Subway 1</h2>
-        <p></p>
+      <div class="card">
+        <a href="#popup2"><img src="subway1.jpg" alt="Subway Scene 1" class="popup-img" /></a>
+        <h2>Subway Scene 1</h2>
       </div>
 
       <!-- Image Card 3 -->
-      <div class="card" title="Image Ad 3">
-        <img src="subway2.jpg" alt="Image Ad 3" />
-        <h2>Subway 2</h2>
-        <p></p>
+      <div class="card">
+        <a href="#popup3"><img src="subway2.jpg" alt="Subway Scene 2" class="popup-img" /></a>
+        <h2>Subway Scene 2</h2>
       </div>
     </div>
 
     <button class="home-btn" onclick="goHome()">← Home</button>
   </div>
 
-<script>
-  function goHome() {
-    window.location.href = 'index.html';
-  }
-</script>
+  <!-- Popups -->
+  <div id="popup1" class="modal">
+    <a href="#" class="close-btn">&times;</a>
+    <img src="table.jpg" alt="Photorealistic Table" />
+  </div>
+
+  <div id="popup2" class="modal">
+    <a href="#" class="close-btn">&times;</a>
+    <img src="subway1.jpg" alt="Subway Scene 1" />
+  </div>
+
+  <div id="popup3" class="modal">
+    <a href="#" class="close-btn">&times;</a>
+    <img src="subway2.jpg" alt="Subway Scene 2" />
+  </div>
+
+  <script>
+    function goHome() {
+      window.location.href = 'index.html';
+    }
+  </script>
 </body>
 </html>
