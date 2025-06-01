@@ -4,13 +4,14 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Portfolio Home</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
   /* Basic Reset & Styling */
   * {
     box-sizing: border-box;
   }
   body {
-    margin:0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin:0; font-family: 'Poppins', sans-serif;
     background: #000;
     color: #eee;
     scroll-behavior: smooth;
@@ -45,7 +46,6 @@
     padding: 0 20px;
   }
 
-  /* Category tabs */
   .category-tabs {
     display: flex;
     gap: 20px;
@@ -83,10 +83,9 @@
   .tab p {
     font-size: 1rem;
     color: #ccc;
-    line-height: 1.3;
+    line-height: 1.4;
   }
 
-  /* Soft skills section */
   section.soft-skills {
     margin-top: 60px;
     background: #111;
@@ -97,6 +96,7 @@
     text-align: center;
     margin-bottom: 30px;
     font-size: 1.8rem;
+    font-weight: 600;
   }
   .skills-grid {
     display: grid;
@@ -127,7 +127,20 @@
     line-height: 1.4;
   }
 
-  /* Responsive */
+  footer {
+    text-align: center;
+    padding: 30px 20px;
+    font-size: 0.95rem;
+    color: #aaa;
+  }
+  footer a {
+    color: #00bfff;
+    text-decoration: none;
+  }
+  footer a:hover {
+    text-decoration: underline;
+  }
+
   @media (max-width: 500px) {
     header {
       padding: 15px 20px;
@@ -145,6 +158,7 @@
 
 <header>
   <h1>Chirag's Portfolio</h1>
+  <a href="Chirag CV.pdf" download class="resume-btn">Download Resume</a>
 </header>
 
 <main>
@@ -180,12 +194,36 @@
         <h3>Visual Communication</h3>
         <p>Simplifying complex ideas using clean and effective design.</p>
       </div>
+      <div class="skill-card">
+        <h3>Attention to Detail</h3>
+        <p>Delivering high-quality visuals with precision and accuracy.</p>
+      </div>
+      <div class="skill-card">
+        <h3>Adaptability</h3>
+        <p>Quickly adjusting to new creative challenges and technologies.</p>
+      </div>
+      <div class="skill-card">
+        <h3>Collaboration</h3>
+        <p>Working seamlessly with teams to achieve project goals.</p>
+      </div>
+      <div class="skill-card">
+        <h3>Time Management</h3>
+        <p>Efficiently balancing multiple projects under tight deadlines.</p>
+      </div>
+      <div class="skill-card">
+        <h3>Problem Solving</h3>
+        <p>Finding creative solutions to complex design challenges.</p>
+      </div>
     </div>
   </section>
 </main>
 
+<footer>
+  <p>Contact me: <a href="mailto:chiragsharmabuisness@gmail.com">chiragsharmabuisness@gmail.com</a> | 
+  <a href="https://www.instagram.com/your_instagram_handle" target="_blank">Instagram</a></p>
+</footer>
+
 <script>
-  // Navigate on tab click
   document.querySelectorAll('.tab').forEach(tab => {
     tab.addEventListener('click', () => {
       const link = tab.getAttribute('data-link');
