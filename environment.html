@@ -111,7 +111,7 @@
     }
 
     .close-btn {
-      position: absolute;
+      position: fixed;
       top: 20px;
       right: 30px;
       font-size: 2rem;
@@ -119,6 +119,7 @@
       text-decoration: none;
       font-weight: bold;
       z-index: 10000;
+      cursor: pointer;
     }
 
     .popup-img {
@@ -132,114 +133,129 @@
     <div class="cards">
       <div class="card popup-img" data-target="popup1">
         <video autoplay muted loop playsinline>
-          <source src="cave.mkv" type="video/webm">
+          <source src="cave.mkv" type="video/x-matroska">
         </video>
         <h2>Cave Scene</h2>
       </div>
       <div class="card popup-img" data-target="popup2">
-        <img src="table.jpg" alt="Photorealistic Table" />
+        <video autoplay muted loop playsinline>
+          <source src="table.jpg" type="video/x-matroska">
+        </video>
         <h2>Photorealistic Table</h2>
       </div>
       <div class="card popup-img" data-target="popup3">
-        <img src="subway1.jpg" alt="Subway Scene 1" />
+        <video autoplay muted loop playsinline>
+          <source src="subway1.mkv" type="video/x-matroska">
+        </video>
         <h2>Subway Scene 1</h2>
       </div>
       <div class="card popup-img" data-target="popup4">
-        <img src="subway2.jpg" alt="Subway Scene 2" />
+        <video autoplay muted loop playsinline>
+          <source src="subway2.mkv" type="video/x-matroska">
+        </video>
         <h2>Subway Scene 2</h2>
       </div>
       <div class="card popup-img" data-target="popup5">
-        <img src="lux.jpg" alt="Lux Bar Scene" />
+        <video autoplay muted loop playsinline>
+          <source src="lux.mkv" type="video/x-matroska">
+        </video>
         <h2>Lux Bar Scene</h2>
       </div>
     </div>
     <button class="home-btn" onclick="goHome()">← Home</button>
   </div>
 
+  <!-- Popups -->
   <div id="popup1" class="modal">
-    <a href="#" class="close-btn">×</a>
+    <span class="close-btn">×</span>
     <div class="modal-content">
-      <video autoplay controls loop>
+      <video controls autoplay>
         <source src="cave.mp4" type="video/mp4">
       </video>
       <div class="info">
         <h2>Cave Scene</h2>
-        <p><strong>Skills Used:</strong> Lighting, Simulation, Animation</p>
-        <p><strong>Apps:</strong> Blender, After Effects</p>
-        <p><strong>About:</strong> A dark and atmospheric cave environment with simulated water and smoke elements. Ideal for cinematic use.</p>
+        <p>This is a dark, atmospheric cave environment rendered in full 3D, showcasing lighting and volumetric fog.</p>
       </div>
     </div>
   </div>
 
   <div id="popup2" class="modal">
-    <a href="#" class="close-btn">×</a>
+    <span class="close-btn">×</span>
     <div class="modal-content">
-      <img src="table.jpg" alt="Photorealistic Table" />
+      <video controls autoplay>
+        <source src="table.jpg" type="img">
+      </video>
       <div class="info">
         <h2>Photorealistic Table</h2>
-        <p><strong>Skills Used:</strong> Lighting, Texturing, Compositing</p>
-        <p><strong>Apps:</strong> Blender, Photoshop</p>
-        <p><strong>About:</strong> A detailed photorealistic table showcasing realistic materials and mood lighting to simulate a professional product rendering environment.</p>
+        <p>Realistic render of a table setup with natural lighting, shadows, and detailed texture work.</p>
       </div>
     </div>
   </div>
 
   <div id="popup3" class="modal">
-    <a href="#" class="close-btn">×</a>
+    <span class="close-btn">×</span>
     <div class="modal-content">
-      <img src="subway1.jpg" alt="Subway Scene 1" />
+      <video controls autoplay>
+        <source src="subway1.mkv" type="video/x-matroska">
+      </video>
       <div class="info">
         <h2>Subway Scene 1</h2>
-        <p><strong>Skills Used:</strong> Environment Modeling, Lighting</p>
-        <p><strong>Apps:</strong> Blender</p>
-        <p><strong>About:</strong> A moody underground subway environment created to showcase cinematic lighting and wet floor reflections.</p>
+        <p>Underground subway platform with grungy textures, environmental storytelling, and animated lighting.</p>
       </div>
     </div>
   </div>
 
   <div id="popup4" class="modal">
-    <a href="#" class="close-btn">×</a>
+    <span class="close-btn">×</span>
     <div class="modal-content">
-      <img src="subway2.jpg" alt="Subway Scene 2" />
+      <video controls autoplay>
+        <source src="subway2.jpg" type="img">
+      </video>
       <div class="info">
         <h2>Subway Scene 2</h2>
-        <p><strong>Skills Used:</strong> Scene Continuity, Advanced Shading</p>
-        <p><strong>Apps:</strong> Blender</p>
-        <p><strong>About:</strong> Second angle of the subway project showcasing different compositional techniques and light simulations.</p>
+        <p>Continuation of the subway environment featuring a train arrival, crowd simulation, and cinematic mood.</p>
       </div>
     </div>
   </div>
 
   <div id="popup5" class="modal">
-    <a href="#" class="close-btn">×</a>
+    <span class="close-btn">×</span>
     <div class="modal-content">
-      <img src="lux.mp4" alt="Lux Bar Scene" type="video/mp4" />
+      <video controls autoplay>
+        <source src="lux.mp4" type="video/mp4">
+      </video>
       <div class="info">
         <h2>Lux Bar Scene</h2>
-        <p><strong>Skills Used:</strong> Cinematic Lighting, Atmosphere Composition, Animation</p>
-        <p><strong>Apps:</strong> Blender, DaVinci Resolve</p>
-        <p><strong>About:</strong> A luxurious bar scene with stylized lights and atmosphere simulating a commercial animation. Created for a fictional nightlife brand campaign.</p>
+        <p>A luxurious bar interior with dynamic lighting, reflective surfaces, and moody ambiance perfect for nightlife branding.</p>
       </div>
     </div>
   </div>
 
   <script>
     function goHome() {
-      window.location.href = 'index.html';
+      document.querySelectorAll('.modal').forEach(modal => modal.style.display = 'none');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     document.querySelectorAll('.popup-img').forEach(el => {
       el.addEventListener('click', () => {
         const popupId = el.getAttribute('data-target');
         document.querySelectorAll('.modal').forEach(modal => modal.style.display = 'none');
-        document.getElementById(popupId).style.display = 'block';
+        const modal = document.getElementById(popupId);
+        modal.style.display = 'block';
+        modal.scrollIntoView({ behavior: 'smooth' });
+        const video = modal.querySelector("video");
+        if (video) video.play();
       });
     });
 
     document.querySelectorAll('.close-btn').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        btn.closest('.modal').style.display = 'none';
+      btn.addEventListener('click', () => {
+        const modal = btn.closest('.modal');
+        const video = modal.querySelector("video");
+        if (video) video.pause();
+        modal.style.display = 'none';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       });
     });
   </script>
