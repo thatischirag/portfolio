@@ -77,20 +77,38 @@
       top: 0;
       width: 100vw;
       height: 100vh;
-      overflow: auto;
-      background-color: rgba(0, 0, 0, 0.9);
-      justify-content: center;
-      align-items: center;
+      overflow-y: auto;
+      background-color: rgba(0, 0, 0, 0.95);
+      padding: 3rem 2rem;
     }
 
-    .modal img {
-      max-width: 90%;
-      max-height: 80%;
+    .modal-content {
+      max-width: 800px;
+      margin: auto;
+      background: #111;
+      border-radius: 12px;
+      overflow: hidden;
+      padding: 1rem;
+    }
+
+    .modal video, .modal img {
+      width: 100%;
+      height: auto;
       border-radius: 12px;
     }
 
-    .modal:target {
-      display: flex;
+    .modal .info {
+      padding: 1rem;
+    }
+
+    .modal .info h2 {
+      color: #00bfff;
+      margin-top: 1rem;
+    }
+
+    .modal .info p {
+      color: #ccc;
+      margin: 0.5rem 0;
     }
 
     .close-btn {
@@ -101,6 +119,7 @@
       color: white;
       text-decoration: none;
       font-weight: bold;
+      z-index: 10000;
     }
 
     .popup-img {
@@ -112,39 +131,28 @@
   <div class="container">
     <h1>3D Environment Scenes</h1>
     <div class="cards">
-      <!-- Video Card -->
+      <!-- Existing Video Card -->
       <div class="card">
         <video autoplay muted loop playsinline>
           <source src="cave.mp4" type="video/mp4">
-          Your browser does not support the video tag.
         </video>
         <h2>Cave Scene</h2>
       </div>
-<!-- Video Card: Lux Scene -->
-<div class="card">
-  <video autoplay muted loop playsinline>
-    <source src="lux.mkv" type="video/mkv">
-    Your browser does not support the video tag.
-  </video>
-  <h2>Lux Bar Scene</h2>
-</div>
 
-      <!-- Image Card 1 -->
+      <!-- Image Card -->
       <div class="card">
         <a href="#popup1"><img src="table.jpg" alt="Photorealistic Table" class="popup-img" /></a>
         <h2>Photorealistic Table</h2>
       </div>
 
-      <!-- Image Card 2 -->
+      <!-- New Video Card (lux.mkv) -->
       <div class="card">
-        <a href="#popup2"><img src="subway1.jpg" alt="Subway Scene 1" class="popup-img" /></a>
-        <h2>Subway Scene 1</h2>
-      </div>
-
-      <!-- Image Card 3 -->
-      <div class="card">
-        <a href="#popup3"><img src="subway2.jpg" alt="Subway Scene 2" class="popup-img" /></a>
-        <h2>Subway Scene 2</h2>
+        <a href="#popup4">
+          <video autoplay muted loop playsinline>
+            <source src="lux.mp4" type="video/mp4">
+          </video>
+        </a>
+        <h2>Lux Bar Scene</h2>
       </div>
     </div>
 
@@ -154,22 +162,30 @@
   <!-- Popups -->
   <div id="popup1" class="modal">
     <a href="#" class="close-btn">&times;</a>
-    <img src="table.jpg" alt="Photorealistic Table" />
-  </div>
-
-  <div id="popup2" class="modal">
-    <a href="#" class="close-btn">&times;</a>
-    <img src="subway1.jpg" alt="Subway Scene 1" />
-  </div>
-
-  <div id="popup3" class="modal">
-    <a href="#" class="close-btn">&times;</a>
-    <img src="subway2.jpg" alt="Subway Scene 2" />
+    <div class="modal-content">
+      <img src="table.jpg" alt="Photorealistic Table" />
+      <div class="info">
+        <h2>Photorealistic Table</h2>
+        <p><strong>Skills Used:</strong> Lighting, Texturing, Compositing</p>
+        <p><strong>Apps:</strong> Blender, Photoshop</p>
+        <p><strong>About:</strong> A detailed photorealistic table showcasing realistic materials and mood lighting to simulate a professional product rendering environment.</p>
+      </div>
+    </div>
   </div>
 
   <div id="popup4" class="modal">
     <a href="#" class="close-btn">&times;</a>
-    <img src="lux.jpg" alt="Lux Bar Scene" />
+    <div class="modal-content">
+      <video autoplay muted loop playsinline>
+        <source src="lux.mkv" type="video/x-matroska">
+      </video>
+      <div class="info">
+        <h2>Lux Bar Scene</h2>
+        <p><strong>Skills Used:</strong> Cinematic Lighting, Atmosphere Composition, Animation</p>
+        <p><strong>Apps:</strong> Blender, DaVinci Resolve</p>
+        <p><strong>About:</strong> A luxurious bar scene with stylized lights and atmosphere simulating a commercial animation. Created for a fictional nightlife brand campaign.</p>
+      </div>
+    </div>
   </div>
 
   <script>
