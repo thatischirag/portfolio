@@ -178,7 +178,7 @@
         <h2>Photorealistic Table</h2>
       </div>
     </div>
-    <button class="home-btn" onclick="index.html">← Home</button>
+   <button class="home-btn" onclick="goHome()">← Home</button>
   </div>
 
   <!-- Popups -->
@@ -243,11 +243,8 @@
   </div>
 
   <script>
-    function goHome() {
-      document.querySelectorAll('.modal').forEach(modal => {
-        modal.style.display = 'none';
-      });
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+     function goHome() {
+      window.location.href = 'index.html';
     }
 
     document.querySelectorAll('.popup-img').forEach(el => {
