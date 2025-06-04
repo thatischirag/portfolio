@@ -30,6 +30,8 @@
       cursor: pointer;
       box-shadow: 0 0 10px transparent;
       transition: box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
     }
     .card:hover {
       box-shadow: 0 0 20px 4px #007bff;
@@ -39,14 +41,19 @@
       width: 100%;
       height: auto;
       border-radius: 15px;
+      object-fit: cover;
+      flex-shrink: 0;
     }
     h1 {
       font-size: 2rem;
       margin-bottom: 1rem;
+      color: #0000fff;
     }
     h2 {
       margin-top: 1rem;
       font-weight: 700;
+      padding: 0 1rem 1rem;
+      color: #00bfff;
     }
     p {
       color: #bbb;
@@ -68,6 +75,7 @@
       color: #fff;
     }
 
+    /* Modal styles */
     .modal {
       display: none;
       position: fixed;
@@ -79,6 +87,7 @@
       overflow-y: auto;
       background-color: rgba(0, 0, 0, 0.95);
       padding: 3rem 2rem;
+      box-sizing: border-box;
     }
 
     .modal-content {
@@ -88,12 +97,14 @@
       border-radius: 12px;
       overflow: hidden;
       padding: 1rem;
+      box-sizing: border-box;
     }
 
     .modal video, .modal img {
       width: 100%;
       height: auto;
       border-radius: 12px;
+      object-fit: contain;
     }
 
     .modal .info {
@@ -107,23 +118,28 @@
 
     .modal .info p {
       color: #ccc;
-      margin: 0.5rem 0;
+      margin: 0.5rem 0 2rem;
     }
 
+    /* Close button - fixed position for visibility */
     .close-btn {
       position: fixed;
       top: 20px;
       right: 30px;
-      font-size: 2rem;
+      font-size: 2.5rem;
       color: white;
-      text-decoration: none;
+      background-color: rgba(0,0,0,0.6);
+      padding: 5px 12px;
+      border-radius: 6px;
       font-weight: bold;
-      z-index: 10000;
+      z-index: 10001;
       cursor: pointer;
+      text-decoration: none;
+      user-select: none;
+      transition: background-color 0.3s ease;
     }
-
-    .popup-img {
-      cursor: pointer;
+    .close-btn:hover {
+      background-color: rgba(0,0,0,0.9);
     }
   </style>
 </head>
@@ -131,46 +147,47 @@
   <div class="container">
     <h1>3D Environment Scenes</h1>
     <div class="cards">
-      <div class="card popup-img" data-target="popup1">
+      <!-- Video cards -->
+      <div class="card popup-img" data-target="popupCave">
         <video autoplay muted loop playsinline>
-          <source src="cave.mkv" type="video/x-matroska">
+          <source src="cave.mp4" type="video/mp4" />
         </video>
         <h2>Cave Scene</h2>
       </div>
-      <div class="card popup-img" data-target="popup2">
+
+      <div class="card popup-img" data-target="popupLux">
         <video autoplay muted loop playsinline>
-          <source src="table.jpg" type="video/x-matroska">
-        </video>
-        <h2>Photorealistic Table</h2>
-      </div>
-      <div class="card popup-img" data-target="popup3">
-        <video autoplay muted loop playsinline>
-          <source src="subway1.mkv" type="video/x-matroska">
-        </video>
-        <h2>Subway Scene 1</h2>
-      </div>
-      <div class="card popup-img" data-target="popup4">
-        <video autoplay muted loop playsinline>
-          <source src="subway2.mkv" type="video/x-matroska">
-        </video>
-        <h2>Subway Scene 2</h2>
-      </div>
-      <div class="card popup-img" data-target="popup5">
-        <video autoplay muted loop playsinline>
-          <source src="lux.mkv" type="video/x-matroska">
+          <source src="lux.mp4" type="video/mp4" />
         </video>
         <h2>Lux Bar Scene</h2>
+      </div>
+
+      <!-- Image cards -->
+      <div class="card popup-img" data-target="popupSubway1">
+        <img src="subway1.jpg" alt="Subway Scene 1" />
+        <h2>Subway Scene 1</h2>
+      </div>
+
+      <div class="card popup-img" data-target="popupSubway2">
+        <img src="subway2.jpg" alt="Subway Scene 2" />
+        <h2>Subway Scene 2</h2>
+      </div>
+
+      <div class="card popup-img" data-target="popupTable">
+        <img src="table.jpg" alt="Photorealistic Table" />
+        <h2>Photorealistic Table</h2>
       </div>
     </div>
     <button class="home-btn" onclick="goHome()">← Home</button>
   </div>
 
   <!-- Popups -->
-  <div id="popup1" class="modal">
-    <span class="close-btn">×</span>
+
+  <div id="popupCave" class="modal">
+    <a href="#" class="close-btn">×</a>
     <div class="modal-content">
       <video controls autoplay>
-        <source src="cave.mp4" type="video/mp4">
+        <source src="cave.mp4" type="video/mp4" />
       </video>
       <div class="info">
         <h2>Cave Scene</h2>
@@ -179,50 +196,11 @@
     </div>
   </div>
 
-  <div id="popup2" class="modal">
-    <span class="close-btn">×</span>
+  <div id="popupLux" class="modal">
+    <a href="#" class="close-btn">×</a>
     <div class="modal-content">
       <video controls autoplay>
-        <source src="table.jpg" type="img">
-      </video>
-      <div class="info">
-        <h2>Photorealistic Table</h2>
-        <p>Realistic render of a table setup with natural lighting, shadows, and detailed texture work.</p>
-      </div>
-    </div>
-  </div>
-
-  <div id="popup3" class="modal">
-    <span class="close-btn">×</span>
-    <div class="modal-content">
-      <video controls autoplay>
-        <source src="subway1.mkv" type="video/x-matroska">
-      </video>
-      <div class="info">
-        <h2>Subway Scene 1</h2>
-        <p>Underground subway platform with grungy textures, environmental storytelling, and animated lighting.</p>
-      </div>
-    </div>
-  </div>
-
-  <div id="popup4" class="modal">
-    <span class="close-btn">×</span>
-    <div class="modal-content">
-      <video controls autoplay>
-        <source src="subway2.jpg" type="img">
-      </video>
-      <div class="info">
-        <h2>Subway Scene 2</h2>
-        <p>Continuation of the subway environment featuring a train arrival, crowd simulation, and cinematic mood.</p>
-      </div>
-    </div>
-  </div>
-
-  <div id="popup5" class="modal">
-    <span class="close-btn">×</span>
-    <div class="modal-content">
-      <video controls autoplay>
-        <source src="lux.mp4" type="video/mp4">
+        <source src="lux.mp4" type="video/mp4" />
       </video>
       <div class="info">
         <h2>Lux Bar Scene</h2>
@@ -231,31 +209,75 @@
     </div>
   </div>
 
+  <div id="popupSubway1" class="modal">
+    <a href="#" class="close-btn">×</a>
+    <div class="modal-content">
+      <img src="subway1.jpg" alt="Subway Scene 1" />
+      <div class="info">
+        <h2>Subway Scene 1</h2>
+        <p>Underground subway platform with grungy textures, environmental storytelling, and animated lighting.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="popupSubway2" class="modal">
+    <a href="#" class="close-btn">×</a>
+    <div class="modal-content">
+      <img src="subway2.jpg" alt="Subway Scene 2" />
+      <div class="info">
+        <h2>Subway Scene 2</h2>
+        <p>Continuation of the subway environment featuring a train arrival, crowd simulation, and cinematic mood.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="popupTable" class="modal">
+    <a href="#" class="close-btn">×</a>
+    <div class="modal-content">
+      <img src="table.jpg" alt="Photorealistic Table" />
+      <div class="info">
+        <h2>Photorealistic Table</h2>
+        <p>Realistic render of a table setup with natural lighting, shadows, and detailed texture work.</p>
+      </div>
+    </div>
+  </div>
+
   <script>
     function goHome() {
-      document.querySelectorAll('.modal').forEach(modal => modal.style.display = 'none');
+      document.querySelectorAll('.modal').forEach(modal => {
+        modal.style.display = 'none';
+      });
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     document.querySelectorAll('.popup-img').forEach(el => {
       el.addEventListener('click', () => {
         const popupId = el.getAttribute('data-target');
-        document.querySelectorAll('.modal').forEach(modal => modal.style.display = 'none');
+        document.querySelectorAll('.modal').forEach(modal => {
+          modal.style.display = 'none';
+        });
         const modal = document.getElementById(popupId);
-        modal.style.display = 'block';
-        modal.scrollIntoView({ behavior: 'smooth' });
-        const video = modal.querySelector("video");
-        if (video) video.play();
+        if(modal) {
+          modal.style.display = 'block';
+          // Scroll modal to top in case user scrolled previously
+          modal.scrollTop = 0;
+        }
       });
     });
 
     document.querySelectorAll('.close-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const modal = btn.closest('.modal');
-        const video = modal.querySelector("video");
-        if (video) video.pause();
-        modal.style.display = 'none';
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        btn.closest('.modal').style.display = 'none';
+      });
+    });
+
+    // Also close modal if user clicks outside modal-content
+    document.querySelectorAll('.modal').forEach(modal => {
+      modal.addEventListener('click', e => {
+        if (e.target === modal) {
+          modal.style.display = 'none';
+        }
       });
     });
   </script>
