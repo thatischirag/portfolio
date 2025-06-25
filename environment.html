@@ -181,6 +181,13 @@
    <button class="home-btn" onclick="goHome()">← Home</button>
   </div>
 
+  <div class="card popup-img" data-target="popupStore">
+  <video autoplay muted loop playsinline>
+    <source src="store.mkv" type="video/x-matroska" />
+  </video>
+  <h2>Store Scene</h2>
+</div>
+
   <!-- Popups -->
 
   <div id="popupCave" class="modal">
@@ -241,6 +248,19 @@
       </div>
     </div>
   </div>
+
+  <div id="popupStore" class="modal">
+  <a href="#" class="close-btn">×</a>
+  <div class="modal-content">
+    <video controls autoplay>
+      <source src="store.mkv" type="video/x-matroska" />
+    </video>
+    <div class="info">
+      <h2>Store Scene</h2>
+      <p>A futuristic retail space designed with cinematic lighting and sleek architectural elements, perfect for brand presentation.</p>
+    </div>
+  </div>
+</div>
 
   <script>
      function goHome() {
