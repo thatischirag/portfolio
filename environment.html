@@ -9,70 +9,72 @@
       background-color: #000;
       color: #fff;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      padding: 2rem;
       margin: 0;
+      padding: 2rem;
     }
+
     .container {
-      max-width: 900px;
+      max-width: 1100px;
       margin: 0 auto;
     }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      color: #00bfff;
+    }
+
     .cards {
       display: flex;
-      gap: 2rem;
       flex-wrap: wrap;
+      gap: 2rem;
     }
+
     .card {
-      position: relative;
-      background: #111;
+      flex: 1 1 300px;
+      background-color: #111;
       border-radius: 15px;
       overflow: hidden;
-      flex: 1 1 300px;
       cursor: pointer;
-      box-shadow: 0 0 10px transparent;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
       transition: box-shadow 0.3s ease;
       display: flex;
       flex-direction: column;
     }
+
     .card:hover {
-      box-shadow: 0 0 20px 4px #007bff;
+      box-shadow: 0 0 25px 5px #00bfff;
     }
+
     video, img {
-      display: block;
       width: 100%;
       height: auto;
-      border-radius: 15px;
       object-fit: cover;
-      flex-shrink: 0;
+      border-radius: 15px 15px 0 0;
     }
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      color: #0000fff;
-    }
+
     h2 {
-      margin-top: 1rem;
-      font-weight: 700;
-      padding: 0 1rem 1rem;
+      font-size: 1.25rem;
+      padding: 1rem;
+      margin: 0;
       color: #00bfff;
     }
-    p {
-      color: #bbb;
-      margin: 0.5rem 1rem 1.5rem;
-    }
+
     button.home-btn {
-      margin-top: 2rem;
+      margin-top: 3rem;
       background-color: transparent;
-      border: 2px solid #007bff;
-      color: #007bff;
+      border: 2px solid #00bfff;
+      color: #00bfff;
       padding: 0.6rem 1.2rem;
       border-radius: 8px;
       font-size: 1rem;
       cursor: pointer;
       transition: background-color 0.3s ease, color 0.3s ease;
     }
+
     button.home-btn:hover {
-      background-color: #007bff;
-      color: #fff;
+      background-color: #00bfff;
+      color: #000;
     }
 
     /* Modal styles */
@@ -80,8 +82,8 @@
       display: none;
       position: fixed;
       z-index: 9999;
-      left: 0;
       top: 0;
+      left: 0;
       width: 100vw;
       height: 100vh;
       overflow-y: auto;
@@ -97,57 +99,55 @@
       border-radius: 12px;
       overflow: hidden;
       padding: 1rem;
-      box-sizing: border-box;
     }
 
     .modal video, .modal img {
       width: 100%;
       height: auto;
-      border-radius: 12px;
       object-fit: contain;
+      border-radius: 12px;
     }
 
-    .modal .info {
+    .info {
       padding: 1rem;
     }
 
-    .modal .info h2 {
-      color: #00bfff;
+    .info h2 {
       margin-top: 1rem;
+      color: #00bfff;
     }
 
-    .modal .info p {
+    .info p {
       color: #ccc;
       margin: 0.5rem 0 2rem;
     }
 
-    /* Close button - fixed position for visibility */
     .close-btn {
       position: fixed;
       top: 20px;
       right: 30px;
       font-size: 2.5rem;
       color: white;
-      background-color: rgba(0,0,0,0.6);
+      background-color: rgba(0, 0, 0, 0.6);
       padding: 5px 12px;
       border-radius: 6px;
       font-weight: bold;
       z-index: 10001;
       cursor: pointer;
-      text-decoration: none;
       user-select: none;
-      transition: background-color 0.3s ease;
     }
+
     .close-btn:hover {
-      background-color: rgba(0,0,0,0.9);
+      background-color: rgba(0, 0, 0, 0.9);
     }
   </style>
 </head>
 <body>
   <div class="container">
     <h1>3D Environment Scenes</h1>
+
     <div class="cards">
-      <!-- Video cards -->
+      <!-- Video Cards -->
       <div class="card popup-img" data-target="popupCave">
         <video autoplay muted loop playsinline>
           <source src="cave.mp4" type="video/mp4" />
@@ -162,7 +162,14 @@
         <h2>Lux Bar Scene</h2>
       </div>
 
-      <!-- Image cards -->
+      <div class="card popup-img" data-target="popupStore">
+        <video autoplay muted loop playsinline>
+          <source src="store.mkv" type="video/x-matroska" />
+        </video>
+        <h2>Store Scene</h2>
+      </div>
+
+      <!-- Image Cards -->
       <div class="card popup-img" data-target="popupSubway1">
         <img src="subway1.jpg" alt="Subway Scene 1" />
         <h2>Subway Scene 1</h2>
@@ -178,18 +185,11 @@
         <h2>Photorealistic Table</h2>
       </div>
     </div>
-   <button class="home-btn" onclick="goHome()">← Home</button>
+
+    <button class="home-btn" onclick="goHome()">← Home</button>
   </div>
 
-  <div class="card popup-img" data-target="popupStore">
-  <video autoplay muted loop playsinline>
-    <source src="store.mkv" type="video/x-matroska" />
-  </video>
-  <h2>Store Scene</h2>
-</div>
-
-  <!-- Popups -->
-
+  <!-- Modals -->
   <div id="popupCave" class="modal">
     <a href="#" class="close-btn">×</a>
     <div class="modal-content">
@@ -212,6 +212,19 @@
       <div class="info">
         <h2>Lux Bar Scene</h2>
         <p>A luxurious bar interior with dynamic lighting, reflective surfaces, and moody ambiance perfect for nightlife branding.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="popupStore" class="modal">
+    <a href="#" class="close-btn">×</a>
+    <div class="modal-content">
+      <video controls autoplay>
+        <source src="store.mkv" type="video/x-matroska" />
+      </video>
+      <div class="info">
+        <h2>Store Scene</h2>
+        <p>A futuristic retail space designed with cinematic lighting and sleek architectural elements, perfect for brand presentation.</p>
       </div>
     </div>
   </div>
@@ -249,47 +262,30 @@
     </div>
   </div>
 
-  <div id="popupStore" class="modal">
-  <a href="#" class="close-btn">×</a>
-  <div class="modal-content">
-    <video controls autoplay>
-      <source src="store.mkv" type="video/x-matroska" />
-    </video>
-    <div class="info">
-      <h2>Store Scene</h2>
-      <p>A futuristic retail space designed with cinematic lighting and sleek architectural elements, perfect for brand presentation.</p>
-    </div>
-  </div>
-</div>
-
   <script>
-     function goHome() {
+    function goHome() {
       window.location.href = 'index.html';
     }
 
     document.querySelectorAll('.popup-img').forEach(el => {
       el.addEventListener('click', () => {
         const popupId = el.getAttribute('data-target');
-        document.querySelectorAll('.modal').forEach(modal => {
-          modal.style.display = 'none';
-        });
+        document.querySelectorAll('.modal').forEach(m => m.style.display = 'none');
         const modal = document.getElementById(popupId);
-        if(modal) {
+        if (modal) {
           modal.style.display = 'block';
-          // Scroll modal to top in case user scrolled previously
           modal.scrollTop = 0;
         }
       });
     });
 
     document.querySelectorAll('.close-btn').forEach(btn => {
-      btn.addEventListener('click', (e) => {
+      btn.addEventListener('click', e => {
         e.preventDefault();
         btn.closest('.modal').style.display = 'none';
       });
     });
 
-    // Also close modal if user clicks outside modal-content
     document.querySelectorAll('.modal').forEach(modal => {
       modal.addEventListener('click', e => {
         if (e.target === modal) {
