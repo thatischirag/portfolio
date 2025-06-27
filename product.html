@@ -6,77 +6,71 @@
   <title>Product Advertising</title>
   <style>
     body {
+      margin: 0;
       background-color: #000;
       color: #fff;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       padding: 2rem;
-      margin: 0;
     }
-    .container {
-      max-width: 1000px;
-      margin: 0 auto;
-    }
+
     h1 {
+      text-align: center;
       font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-      color: #00bfff;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-    }
-    .tagline {
-      color: #aaa;
-      font-size: 1.1rem;
       margin-bottom: 2rem;
+      color: #00bfff;
+      letter-spacing: 1px;
     }
-    .cards {
-      display: flex;
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 2rem;
-      flex-wrap: wrap;
     }
+
     .card {
-      position: relative;
       background: #111;
       border-radius: 15px;
       overflow: hidden;
-      flex: 1 1 45%;
-      cursor: pointer;
       box-shadow: 0 0 10px transparent;
-      transition: box-shadow 0.3s ease;
-    }
-    .card:hover {
-      box-shadow: 0 0 20px 4px #007bff;
-    }
-    video, img {
-      display: block;
-      width: 100%;
-      height: auto;
-      border-radius: 15px;
-    }
-    h2 {
-      margin: 1rem;
-      font-weight: 700;
-    }
-    p {
-      color: #bbb;
-      margin: 0 1rem 1rem;
-    }
-    button.home-btn {
-      margin-top: 2rem;
-      background-color: transparent;
-      border: 2px solid #007bff;
-      color: #007bff;
-      padding: 0.6rem 1.2rem;
-      border-radius: 8px;
-      font-size: 1rem;
+      transition: box-shadow 0.3s ease, transform 0.4s ease;
+      opacity: 0;
+      transform: translateY(40px);
       cursor: pointer;
-      transition: background-color 0.3s ease, color 0.3s ease;
-    }
-    button.home-btn:hover {
-      background-color: #007bff;
-      color: #fff;
     }
 
-    /* Popup styles */
+    .card.visible {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .card:hover {
+      box-shadow: 0 0 20px #007bff;
+      transform: scale(1.01);
+    }
+
+    video {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 0;
+    }
+
+    .content {
+      padding: 1rem;
+    }
+
+    .content h2 {
+      margin: 0 0 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    .content p {
+      color: #bbb;
+      margin: 0;
+    }
+
+    /* Popup */
     .videoPopup {
       position: fixed;
       top: 0;
@@ -90,98 +84,154 @@
       z-index: 9999;
       flex-direction: column;
     }
+
     .videoPopup video {
       width: 90vw;
-      height: auto;
       max-height: 80vh;
       border-radius: 12px;
       box-shadow: 0 0 30px #007bff;
     }
+
     .closePopup {
       margin-top: 1rem;
       background: #007bff;
       border: none;
       color: #fff;
-      padding: 0.5rem 1rem;
+      padding: 0.6rem 1.2rem;
       border-radius: 8px;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       cursor: pointer;
     }
+
     .closePopup:hover {
       background: #005bb5;
+    }
+
+    .home-btn {
+      display: block;
+      margin: 3rem auto 0;
+      background-color: transparent;
+      border: 2px solid #007bff;
+      color: #007bff;
+      padding: 0.6rem 1.5rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .home-btn:hover {
+      background-color: #007bff;
+      color: #fff;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Product Advertising</h1>
-    <div class="tagline">A collection of cinematic product visuals</div>
-    <div class="cards">
-      <div class="card videoCard" data-video-src="1.mp4" title="BMW Ad 1">
-        <video autoplay muted loop playsinline>
-          <source src="1.mp4" type="video/mp4" />
-        </video>
-        <h2>BMW Shot 1</h2>
-      </div>
 
-      <div class="card videoCard" data-video-src="2.mp4" title="BMW Ad 2">
-        <video autoplay muted loop playsinline>
-          <source src="2.mp4" type="video/mp4" />
-        </video>
-        <h2>BMW Shot 2</h2>
-      </div>
+  <h1>Product Advertising</h1>
 
-      <div class="card videoCard" data-video-src="3.mp4" title="BMW Ad 3">
-        <video autoplay muted loop playsinline>
-          <source src="3.mp4" type="video/mp4" />
-        </video>
-        <h2>BMW Shot 3</h2>
-      </div>
+  <div class="grid">
 
-      <div class="card videoCard" data-video-src="7.mp4" title="BMW Ad 4">
-        <video autoplay muted loop playsinline>
-          <source src="7.mp4" type="video/mp4" />
-        </video>
-        <h2>BMW Shot 4</h2>
-      </div>
-
-      <div class="card videoCard" data-video-src="watch.mp4" title="Watch Ad">
-        <video autoplay muted loop playsinline>
-          <source src="watch.mp4" type="video/mp4" />
-        </video>
-        <h2>Luxury Watch Shot</h2>
-      </div>
-
-      <div class="card videoCard" data-video-src="4.mp4" title="BMW Ad 5">
-        <video autoplay muted loop playsinline>
-          <source src="4.mp4" type="video/mp4" />
-        </video>
-        <h2>BMW Shot 5</h2>
-      </div>
-
-      <div class="card videoCard" data-video-src="5.mp4" title="BMW Ad 6">
-        <video autoplay muted loop playsinline>
-          <source src="5.mp4" type="video/mp4" />
-        </video>
-        <h2>BMW Shot 6</h2>
-      </div>
-
-      <div class="card videoCard" data-video-src="6.mp4" title="BMW Ad 7">
-        <video autoplay muted loop playsinline>
-          <source src="6.mp4" type="video/mp4" />
-        </video>
-        <h2>BMW Shot 7</h2>
+    <div class="card videoCard" data-video-src="1.mp4">
+      <video autoplay muted loop playsinline>
+        <source src="1.mp4" type="video/mp4" />
+      </video>
+      <div class="content">
+        <h2>BMW Ad 1</h2>
+        <p>Smooth motion with bold lighting.</p>
       </div>
     </div>
 
-    <!-- Popup -->
-    <div id="videoPopup" class="videoPopup">
-      <video id="popupVideo" controls></video>
-      <button id="closePopup" class="closePopup">Close ×</button>
+    <div class="card videoCard" data-video-src="2.mp4">
+      <video autoplay muted loop playsinline>
+        <source src="2.mp4" type="video/mp4" />
+      </video>
+      <div class="content">
+        <h2>BMW Ad 2</h2>
+        <p>Close-up cinematic car movement.</p>
+      </div>
     </div>
 
-    <button class="home-btn" onclick="goHome()">← Home</button>
+    <div class="card videoCard" data-video-src="3.mp4">
+      <video autoplay muted loop playsinline>
+        <source src="3.mp4" type="video/mp4" />
+      </video>
+      <div class="content">
+        <h2>BMW Ad 3</h2>
+        <p>Urban scene with reflections and detail.</p>
+      </div>
+    </div>
+
+    <div class="card videoCard" data-video-src="4.mp4">
+      <video autoplay muted loop playsinline>
+        <source src="4.mp4" type="video/mp4" />
+      </video>
+      <div class="content">
+        <h2>BMW Ad 4</h2>
+        <p>Night drive experience with neon tones.</p>
+      </div>
+    </div>
+
+    <div class="card videoCard" data-video-src="5.mp4">
+      <video autoplay muted loop playsinline>
+        <source src="5.mp4" type="video/mp4" />
+      </video>
+      <div class="content">
+        <h2>BMW Ad 5</h2>
+        <p>Graded lighting and modern framing.</p>
+      </div>
+    </div>
+
+    <div class="card videoCard" data-video-src="6.mp4">
+      <video autoplay muted loop playsinline>
+        <source src="6.mp4" type="video/mp4" />
+      </video>
+      <div class="content">
+        <h2>BMW Ad 6</h2>
+        <p>Wheels in motion and power shots.</p>
+      </div>
+    </div>
+
+    <div class="card videoCard" data-video-src="7.mp4">
+      <video autoplay muted loop playsinline>
+        <source src="7.mp4" type="video/mp4" />
+      </video>
+      <div class="content">
+        <h2>BMW Ad 7</h2>
+        <p>Side-rolls and mechanical depth.</p>
+      </div>
+    </div>
+
+    <div class="card videoCard" data-video-src="watch.mp4">
+      <video autoplay muted loop playsinline>
+        <source src="watch.mp4" type="video/mp4" />
+      </video>
+      <div class="content">
+        <h2>Luxury Watch</h2>
+        <p>Focus and color-graded minimalism.</p>
+      </div>
+    </div>
+
+    <div class="card videoCard" data-video-src="rolex.mkv">
+      <video autoplay muted loop playsinline>
+        <source src="rolex.mkv" type="video/webm" />
+      </video>
+      <div class="content">
+        <h2>Rolex Ad</h2>
+        <p>High-end mood with cinematic lighting.</p>
+      </div>
+    </div>
+
   </div>
+
+  <!-- Popup -->
+  <div id="videoPopup" class="videoPopup">
+    <video id="popupVideo" controls></video>
+    <button id="closePopup" class="closePopup">Close ×</button>
+  </div>
+
+  <!-- Home Button -->
+  <button class="home-btn" onclick="goHome()">← Home</button>
 
   <script>
     function goHome() {
@@ -204,7 +254,6 @@
 
     closePopup.addEventListener('click', () => {
       popupVideo.pause();
-      popupVideo.currentTime = 0;
       popupVideo.src = "";
       videoPopup.style.display = 'none';
     });
@@ -212,10 +261,22 @@
     videoPopup.addEventListener('click', (e) => {
       if (e.target === videoPopup) {
         popupVideo.pause();
-        popupVideo.currentTime = 0;
         popupVideo.src = "";
         videoPopup.style.display = 'none';
       }
+    });
+
+    // Fade-in animation on scroll
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.card').forEach(card => {
+      observer.observe(card);
     });
   </script>
 </body>
