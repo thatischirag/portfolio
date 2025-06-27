@@ -1,167 +1,239 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Portfolio Home</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-<style>
-  /* Basic Reset & Styling */
-  * {
-    box-sizing: border-box;
-  }
-  body {
-    margin:0; font-family: 'Poppins', sans-serif;
-    background: #000;
-    color: #eee;
-    scroll-behavior: smooth;
-  }
-  header {
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 20px 40px;
-    background: #111;
-    position: sticky; top: 0; z-index: 10;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.8);
-  }
-  header h1 {
-    margin: 0; font-weight: 700; font-size: 1.8rem;
-    cursor: default;
-  }
-  header a.resume-btn {
-    padding: 10px 20px;
-    background: #007bff;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 25px;
-    font-weight: 600;
-    transition: background 0.3s ease;
-  }
-  header a.resume-btn:hover {
-    background: #0056b3;
-  }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
 
-  main {
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 0 20px;
-  }
+    html {
+      scroll-behavior: smooth;
+    }
 
-  .category-tabs {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  .tab {
-    background: #222;
-    flex: 1 1 260px;
-    padding: 20px;
-    border-radius: 20px;
-    text-align: center;
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 0 5px #007bff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .tab:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 20px #00a8ffaa;
-  }
-  .tab img {
-    width: 100%;
-    height: 140px;
-    object-fit: cover;
-    border-radius: 15px;
-    margin-bottom: 15px;
-  }
-  .tab h2 {
-    margin: 0 0 10px;
-    font-size: 1.6rem;
-  }
-  .tab p {
-    font-size: 1rem;
-    color: #ccc;
-    line-height: 1.4;
-  }
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #000;
+      color: #eee;
+    }
 
-  section.soft-skills {
-    margin-top: 60px;
-    background: #111;
-    border-radius: 15px;
-    padding: 30px 25px;
-  }
-  section.soft-skills h2 {
-    text-align: center;
-    margin-bottom: 30px;
-    font-size: 1.8rem;
-    font-weight: 600;
-  }
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
-    gap: 25px;
-  }
-  .skill-card {
-    background: #222;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 0 8px #00a8ff44;
-    transition: transform 0.2s ease;
-  }
-  .skill-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px #00bfffaa;
-  }
-  .skill-card h3 {
-    margin-top: 0;
-    margin-bottom: 8px;
-    font-size: 1.2rem;
-    color: #00bfff;
-  }
-  .skill-card p {
-    margin: 0;
-    font-size: 0.95rem;
-    color: #bbb;
-    line-height: 1.4;
-  }
-
-  footer {
-    text-align: center;
-    padding: 30px 20px;
-    font-size: 0.95rem;
-    color: #aaa;
-  }
-  footer a {
-    color: #00bfff;
-    text-decoration: none;
-  }
-  footer a:hover {
-    text-decoration: underline;
-  }
-
-  @media (max-width: 500px) {
     header {
-      padding: 15px 20px;
+      position: sticky;
+      top: 20px;
+      z-index: 100;
+      background: linear-gradient(to right, #0f0f0f, #111);
+      height: 80px;
+      width: auto;
+      margin: 0 auto;
+      border-radius: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: all 0.5s ease;
+      box-shadow: 0 0 20px #00bfff55;
     }
+
+    header.scrolled {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      justify-content: center;
+      background: #0f0f0f;
+      padding: 0;
+    }
+
+    .header-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: #00bfff;
+      text-shadow: 0 0 8px #00bfff88;
+      padding: 10px 20px;
+      cursor: pointer;
+      transition: opacity 0.4s, transform 0.3s, font-size 0.3s;
+    }
+
+    header.scrolled .header-title {
+      font-size: 0;
+      opacity: 0;
+    }
+
+    .resume-btn {
+      position: absolute;
+      right: 40px;
+      padding: 8px 18px;
+      background: #007bff;
+      color: #fff;
+      border-radius: 25px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.3s ease, opacity 0.3s;
+    }
+
+    header.scrolled .resume-btn {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    .category-tabs {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
     .tab {
-      padding: 15px 10px;
+      background: #222;
+      flex: 1 1 260px;
+      padding: 20px;
+      border-radius: 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 0 5px #007bff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      opacity: 0;
+      transform: translateY(50px);
     }
+
+    .tab.visible {
+      opacity: 1;
+      transform: translateY(0);
+      transition: all 0.6s ease;
+    }
+
+    .tab:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px #00a8ffaa;
+    }
+
     .tab img {
-      height: 120px;
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 15px;
+      margin-bottom: 15px;
     }
-  }
-</style>
+
+    .tab h2 {
+      margin: 0 0 10px;
+      font-size: 1.6rem;
+    }
+
+    .tab p {
+      font-size: 1rem;
+      color: #ccc;
+      line-height: 1.4;
+    }
+
+    section.soft-skills {
+      margin-top: 60px;
+      background: #111;
+      border-radius: 15px;
+      padding: 30px 25px;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.6s ease;
+    }
+
+    section.soft-skills.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+      gap: 25px;
+    }
+
+    .skill-card {
+      background: #222;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 0 8px #00a8ff44;
+      transition: transform 0.2s ease;
+      opacity: 0;
+      transform: translateY(40px);
+    }
+
+    .skill-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+      transition: all 0.5s ease;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px #00bfffaa;
+    }
+
+    .skill-card h3 {
+      margin-top: 0;
+      margin-bottom: 8px;
+      font-size: 1.2rem;
+      color: #00bfff;
+    }
+
+    .skill-card p {
+      margin: 0;
+      font-size: 0.95rem;
+      color: #bbb;
+      line-height: 1.4;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 0.95rem;
+      color: #aaa;
+    }
+
+    footer a {
+      color: #00bfff;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 500px) {
+      header {
+        flex-direction: column;
+        padding: 10px;
+        height: auto;
+      }
+      .resume-btn {
+        position: static;
+        margin-top: 10px;
+      }
+  
+    }
+    
+  </style>
 </head>
 <body>
 
-<header>
-  <h1>Chirag's Portfolio</h1>
+<header id="mainHeader">
+  <div class="header-title" id="scrollToMain">Chirag's Portfolio</div>
   <a href="Chirag CV.pdf" download class="resume-btn">Download Resume</a>
 </header>
 
-<main>
+
+
+<main id="mainSection">
   <div class="category-tabs">
     <div class="tab" data-link="product.html">
       <img src="8.jpg" alt="Product Advertising" />
@@ -178,42 +250,15 @@
   <section class="soft-skills">
     <h2>Soft Skills</h2>
     <div class="skills-grid">
-      <div class="skill-card">
-        <h3>Storytelling</h3>
-        <p>Building compelling visual narratives for products and brands.</p>
-      </div>
-      <div class="skill-card">
-        <h3>Client Thinking</h3>
-        <p>Understanding client needs and translating them into creative outcomes.</p>
-      </div>
-      <div class="skill-card">
-        <h3>Creative Direction</h3>
-        <p>Guiding projects from idea to execution with a clear visual strategy.</p>
-      </div>
-      <div class="skill-card">
-        <h3>Visual Communication</h3>
-        <p>Simplifying complex ideas using clean and effective design.</p>
-      </div>
-      <div class="skill-card">
-        <h3>Attention to Detail</h3>
-        <p>Delivering high-quality visuals with precision and accuracy.</p>
-      </div>
-      <div class="skill-card">
-        <h3>Adaptability</h3>
-        <p>Quickly adjusting to new creative challenges and technologies.</p>
-      </div>
-      <div class="skill-card">
-        <h3>Collaboration</h3>
-        <p>Working seamlessly with teams to achieve project goals.</p>
-      </div>
-      <div class="skill-card">
-        <h3>Time Management</h3>
-        <p>Efficiently balancing multiple projects under tight deadlines.</p>
-      </div>
-      <div class="skill-card">
-        <h3>Problem Solving</h3>
-        <p>Finding creative solutions to complex design challenges.</p>
-      </div>
+      <div class="skill-card"><h3>Storytelling</h3><p>Building compelling visual narratives for products and brands.</p></div>
+      <div class="skill-card"><h3>Client Thinking</h3><p>Understanding client needs and translating them into creative outcomes.</p></div>
+      <div class="skill-card"><h3>Creative Direction</h3><p>Guiding projects from idea to execution with a clear visual strategy.</p></div>
+      <div class="skill-card"><h3>Visual Communication</h3><p>Simplifying complex ideas using clean and effective design.</p></div>
+      <div class="skill-card"><h3>Attention to Detail</h3><p>Delivering high-quality visuals with precision and accuracy.</p></div>
+      <div class="skill-card"><h3>Adaptability</h3><p>Quickly adjusting to new creative challenges and technologies.</p></div>
+      <div class="skill-card"><h3>Collaboration</h3><p>Working seamlessly with teams to achieve project goals.</p></div>
+      <div class="skill-card"><h3>Time Management</h3><p>Efficiently balancing multiple projects under tight deadlines.</p></div>
+      <div class="skill-card"><h3>Problem Solving</h3><p>Finding creative solutions to complex design challenges.</p></div>
     </div>
   </section>
 </main>
@@ -224,6 +269,39 @@
 </footer>
 
 <script>
+  const header = document.getElementById('mainHeader');
+  const scrollToMain = document.getElementById('scrollToMain');
+
+  scrollToMain.addEventListener('click', () => {
+    if (header.classList.contains('scrolled')) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      const target = document.getElementById('mainSection');
+      const offset = target.getBoundingClientRect().top + window.scrollY - 40;
+      window.scrollTo({ top: offset, behavior: 'smooth' });
+    }
+  });
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 80) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      } else {
+        entry.target.classList.remove('visible');
+      }
+    });
+  }, { threshold: 0.2 });
+
+  document.querySelectorAll('.tab, .skill-card, .soft-skills').forEach(el => observer.observe(el));
+
   document.querySelectorAll('.tab').forEach(tab => {
     tab.addEventListener('click', () => {
       const link = tab.getAttribute('data-link');
