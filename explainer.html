@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Product Advertising Projects</title>
+
   <style>
     body {
       background: #000;
@@ -15,14 +16,17 @@
       align-items: center;
       min-height: 100vh;
     }
+
     .projects {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 25px;
       max-width: 1000px;
       width: 100%;
+      margin-top: 30px;
       margin-bottom: 40px;
     }
+
     .project-card {
       background: #111;
       border-radius: 15px;
@@ -31,9 +35,11 @@
       transition: box-shadow 0.3s ease;
       box-shadow: 0 0 0 transparent;
     }
+
     .project-card:hover {
       box-shadow: 0 0 15px 5px rgba(0, 123, 255, 0.7);
     }
+
     .project-img {
       width: 100%;
       height: 180px;
@@ -41,19 +47,23 @@
       display: block;
       border-bottom: 2px solid #222;
     }
+
     .project-content {
       padding: 16px 20px;
     }
+
     .project-title {
       font-size: 1.4rem;
       font-weight: 700;
       margin-bottom: 10px;
     }
+
     .project-desc {
       font-size: 0.95rem;
       color: #bbb;
       line-height: 1.4;
     }
+
     .home-button {
       background-color: #007bff;
       color: white;
@@ -67,13 +77,53 @@
       transition: background-color 0.3s ease;
       user-select: none;
     }
+
     .home-button:hover {
       background-color: #0056b3;
     }
   </style>
 </head>
+
 <body>
+
   <button class="home-button" onclick="location.href='index.html'">Home</button>
+
+  <div class="projects">
+
+    <!-- Bedroom -->
+    <div class="project-card">
+      <img src="bedroom.jpg" class="project-img" alt="Bedroom Scene">
+      <div class="project-content">
+        <div class="project-title">Bedroom Scene</div>
+        <div class="project-desc">
+          A modern bedroom setup focusing on lighting, material realism, and interior composition.
+        </div>
+      </div>
+    </div>
+
+    <!-- Bedroom 1 -->
+    <div class="project-card">
+      <img src="bedroom_1.jpg" class="project-img" alt="Bedroom Variant">
+      <div class="project-content">
+        <div class="project-title">Bedroom Variant</div>
+        <div class="project-desc">
+          Alternative bedroom layout with different mood lighting and spatial arrangement.
+        </div>
+      </div>
+    </div>
+
+    <!-- Living Room -->
+    <div class="project-card">
+      <img src="living room.jpg" class="project-img" alt="Living Room Scene">
+      <div class="project-content">
+        <div class="project-title">Living Room</div>
+        <div class="project-desc">
+          Photorealistic living room environment showcasing textures, reflections, and composition.
+        </div>
+      </div>
+    </div>
+
+  </div>
 
 </body>
 </html>
