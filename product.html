@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Product Advertising</title>
+
   <style>
     body {
       margin: 0;
@@ -23,7 +24,7 @@
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 2rem;
     }
 
@@ -32,7 +33,7 @@
       border-radius: 15px;
       overflow: hidden;
       box-shadow: 0 0 10px transparent;
-      transition: box-shadow 0.3s ease, transform 0.4s ease;
+      transition: 0.4s ease;
       opacity: 0;
       transform: translateY(40px);
       cursor: pointer;
@@ -41,19 +42,19 @@
     .card.visible {
       opacity: 1;
       transform: translateY(0);
-      transition: opacity 0.6s ease, transform 0.6s ease;
     }
 
     .card:hover {
       box-shadow: 0 0 20px #007bff;
-      transform: scale(1.01);
+      transform: scale(1.02);
     }
 
-    video {
+    video,
+    .project-img {
       width: 100%;
-      height: auto;
+      height: 230px;
+      object-fit: cover;
       display: block;
-      border-radius: 0;
     }
 
     .content {
@@ -63,21 +64,24 @@
     .content h2 {
       margin: 0 0 0.5rem;
       font-size: 1.2rem;
+      color: #fff;
     }
 
     .content p {
       color: #bbb;
       margin: 0;
+      line-height: 1.5;
     }
 
     /* Popup */
+
     .videoPopup {
       position: fixed;
       top: 0;
       left: 0;
       width: 100vw;
       height: 100vh;
-      background: rgba(0,0,0,0.9);
+      background: rgba(0,0,0,0.92);
       display: none;
       justify-content: center;
       align-items: center;
@@ -97,9 +101,9 @@
       background: #007bff;
       border: none;
       color: #fff;
-      padding: 0.6rem 1.2rem;
+      padding: 0.7rem 1.5rem;
       border-radius: 8px;
-      font-size: 1.1rem;
+      font-size: 1rem;
       cursor: pointer;
     }
 
@@ -113,11 +117,11 @@
       background-color: transparent;
       border: 2px solid #007bff;
       color: #007bff;
-      padding: 0.6rem 1.5rem;
+      padding: 0.7rem 1.8rem;
       border-radius: 8px;
       font-size: 1rem;
       cursor: pointer;
-      transition: background-color 0.3s ease, color 0.3s ease;
+      transition: 0.3s ease;
     }
 
     .home-btn:hover {
@@ -126,15 +130,18 @@
     }
   </style>
 </head>
+
 <body>
 
   <h1>Product Advertising</h1>
 
   <div class="grid">
 
+    <!-- BMW ADS -->
+
     <div class="card videoCard" data-video-src="1.mp4">
       <video autoplay muted loop playsinline>
-        <source src="1.mp4" type="video/mp4" />
+        <source src="1.mp4" type="video/mp4">
       </video>
       <div class="content">
         <h2>BMW Ad 1</h2>
@@ -144,7 +151,7 @@
 
     <div class="card videoCard" data-video-src="2.mp4">
       <video autoplay muted loop playsinline>
-        <source src="2.mp4" type="video/mp4" />
+        <source src="2.mp4" type="video/mp4">
       </video>
       <div class="content">
         <h2>BMW Ad 2</h2>
@@ -154,7 +161,7 @@
 
     <div class="card videoCard" data-video-src="3.mp4">
       <video autoplay muted loop playsinline>
-        <source src="3.mp4" type="video/mp4" />
+        <source src="3.mp4" type="video/mp4">
       </video>
       <div class="content">
         <h2>BMW Ad 3</h2>
@@ -164,7 +171,7 @@
 
     <div class="card videoCard" data-video-src="4.mp4">
       <video autoplay muted loop playsinline>
-        <source src="4.mp4" type="video/mp4" />
+        <source src="4.mp4" type="video/mp4">
       </video>
       <div class="content">
         <h2>BMW Ad 4</h2>
@@ -174,7 +181,7 @@
 
     <div class="card videoCard" data-video-src="5.mp4">
       <video autoplay muted loop playsinline>
-        <source src="5.mp4" type="video/mp4" />
+        <source src="5.mp4" type="video/mp4">
       </video>
       <div class="content">
         <h2>BMW Ad 5</h2>
@@ -184,7 +191,7 @@
 
     <div class="card videoCard" data-video-src="6.mp4">
       <video autoplay muted loop playsinline>
-        <source src="6.mp4" type="video/mp4" />
+        <source src="6.mp4" type="video/mp4">
       </video>
       <div class="content">
         <h2>BMW Ad 6</h2>
@@ -194,7 +201,7 @@
 
     <div class="card videoCard" data-video-src="7.mp4">
       <video autoplay muted loop playsinline>
-        <source src="7.mp4" type="video/mp4" />
+        <source src="7.mp4" type="video/mp4">
       </video>
       <div class="content">
         <h2>BMW Ad 7</h2>
@@ -202,9 +209,11 @@
       </div>
     </div>
 
+    <!-- WATCH -->
+
     <div class="card videoCard" data-video-src="watch.mp4">
       <video autoplay muted loop playsinline>
-        <source src="watch.mp4" type="video/mp4" />
+        <source src="watch.mp4" type="video/mp4">
       </video>
       <div class="content">
         <h2>Luxury Watch</h2>
@@ -212,9 +221,11 @@
       </div>
     </div>
 
+    <!-- ROLEX -->
+
     <div class="card videoCard" data-video-src="rolex.mkv">
       <video autoplay muted loop playsinline>
-        <source src="rolex.mkv" type="video/webm" />
+        <source src="rolex.mkv" type="video/mp4">
       </video>
       <div class="content">
         <h2>Rolex Ad</h2>
@@ -222,40 +233,38 @@
       </div>
     </div>
 
+    <!-- MUSTANG PROJECT -->
+
+    <div class="card">
+      <img src="mustang.png" class="project-img" alt="Mustang Render">
+
+      <div class="content">
+        <h2>Blue Phantom — Custom 1967 Ford Mustang Fastback</h2>
+
+        <p>
+          Cinematic 3D automotive visualization inspired by the iconic
+          1967 Ford Mustang Fastback, featuring deep metallic blue paint,
+          dramatic underground lighting, chrome detailing, and stylized
+          muscle-car aesthetics.
+        </p>
+      </div>
+    </div>
+
   </div>
 
-  
- <div class="project-card">
-      <img src="mustang.png" class="project-img" alt="Living Room Scene">
-      <div class="project-content">
-        <div class="project-title">Living Room</div>
-        <div class="project-desc">
-         Blue Phantom — Custom 1967 Ford Mustang Fastback
-        </div>
-      </div>
-    </div>
+  <!-- VIDEO POPUP -->
 
-  
-    <div class="card videoCard" data-video-src="1.mp4">
-      <video autoplay muted loop playsinline>
-        <source src="1.mp4" type="video/mp4" />
-      </video>
-      <div class="content">
-        <h2>BMW Ad 1</h2>
-        <p>Smooth motion with bold lighting.</p>
-      </div>
-    </div>
-  
-  <!-- Popup -->
   <div id="videoPopup" class="videoPopup">
     <video id="popupVideo" controls></video>
     <button id="closePopup" class="closePopup">Close ×</button>
   </div>
 
-  <!-- Home Button -->
+  <!-- HOME BUTTON -->
+
   <button class="home-btn" onclick="goHome()">← Home</button>
 
   <script>
+
     function goHome() {
       window.location.href = 'index.html';
     }
@@ -267,39 +276,54 @@
 
     videoCards.forEach(card => {
       card.addEventListener('click', () => {
+
         const videoSrc = card.getAttribute('data-video-src');
+
         popupVideo.src = videoSrc;
         videoPopup.style.display = 'flex';
+
         popupVideo.play();
       });
     });
 
     closePopup.addEventListener('click', () => {
+
       popupVideo.pause();
       popupVideo.src = "";
+
       videoPopup.style.display = 'none';
     });
 
     videoPopup.addEventListener('click', (e) => {
+
       if (e.target === videoPopup) {
+
         popupVideo.pause();
         popupVideo.src = "";
+
         videoPopup.style.display = 'none';
       }
     });
 
-    // Fade-in animation on scroll
+    // Fade Animation
+
     const observer = new IntersectionObserver(entries => {
+
       entries.forEach(entry => {
+
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
         }
+
       });
+
     }, { threshold: 0.1 });
 
     document.querySelectorAll('.card').forEach(card => {
       observer.observe(card);
     });
+
   </script>
+
 </body>
 </html>
